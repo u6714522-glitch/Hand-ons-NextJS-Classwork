@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { X_HEADER_USER_ID } from "./constant";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 
@@ -23,10 +22,12 @@ export function verifyJWT(req) {
   }
 }
 
-export function isAdmin(request) {
-  const headers = request.headers;
+export function isAdmin(req) {
+  const payload = verifyJWT(req);
 
-  const userId = Number(headers.get(X_HEADER_USER_ID));
+  if (!payload) {
+    return false;
+  }
 
-  return userId == -1;
+  return Number(payload.userId) === -1;
 }

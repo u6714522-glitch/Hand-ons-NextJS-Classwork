@@ -1,6 +1,5 @@
 import corsHeaders from "@/app/lib/cors";
 import { NextResponse } from "next/server";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 export async function GET() {
   const response = NextResponse.json(
