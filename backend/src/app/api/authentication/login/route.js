@@ -1,10 +1,9 @@
-import corsHeaders from "@/app/lib/corsHeaders";
+import corsHeaders from "@/app/lib/cors";
 import { getClientPromise } from "@/app/lib/mongodb";
 import { errorResponse } from "@/app/lib/utils";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
-import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const adminUser = process.env.ADMIN_USER;
